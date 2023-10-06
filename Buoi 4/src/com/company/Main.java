@@ -27,24 +27,47 @@ public class Main {
 //        System.out.println("Tổng số là: " + sum);
 
 //        Cách 2: While
-        String y = "";
-        double sum = 0;
+//        String y = "";
+//        double sum = 0;
+//
+//        System.out.println("Mời bạn nhập một số nguyên: ");
+//        Double n = Double.parseDouble(scanner.nextLine());
+//
+//        sum += n;
+//
+//        System.out.println("Do you want to continue? (Y/N)");
+//        y = scanner.nextLine();
+//
+//        while (y.equals("y")){
+//            System.out.println("Mời bạn nhập một số nguyên: ");
+//            n = Double.parseDouble(scanner.nextLine());
+//            sum += n;
+//            System.out.println("Do you want to continue? (Y/N)");
+//            y = scanner.nextLine();
+//        }
+//        System.out.println("Tổng số là: " + sum);
 
-        System.out.println("Mời bạn nhập một số nguyên: ");
-        Double n = Double.parseDouble(scanner.nextLine());
+//        Bài 2
 
-        sum += n;
+        String YN = "";
 
-        System.out.println("Do you want to continue? (Y/N)");
-        y = scanner.nextLine();
+        System.out.println("Please input information of a student");
 
-        while (y.equals("y")){
-            System.out.println("Mời bạn nhập một số nguyên: ");
-            n = Double.parseDouble(scanner.nextLine());
-            sum += n;
+        do {
+            System.out.println("Name: ");
+            String name = scanner.nextLine();
+
+            System.out.println("Address: ");
+            String address = scanner.nextLine();
+
+            System.out.println("Age: ");
+            int age = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Student: " + name + " - " + address + " - " + age);
+
             System.out.println("Do you want to continue? (Y/N)");
-            y = scanner.nextLine();
-        }
-        System.out.println("Tổng số là: " + sum);
+            YN = scanner.nextLine();
+        }while (YN.equals("y"));
+        System.out.println("stop the program");
     }
 }
