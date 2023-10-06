@@ -14,9 +14,9 @@ public class Main {
         System.out.println("Password: ");
         String pass = scanner.nextLine();
 
-        String NameSys = "techmaster";
-        String PassSys = "hoclacoviec";
-        if (name.equals(NameSys) && pass.equals(PassSys)){
+        String SysName = "techmaster";
+        String SysPass = "hoclacoviec";
+        if (name.equals(SysName) && pass.equals(SysPass)){
             System.out.println("Đăng nhập thành công");
         } else {
             System.out.println("Tài khoản không tồn tại, vui long thử lại");
