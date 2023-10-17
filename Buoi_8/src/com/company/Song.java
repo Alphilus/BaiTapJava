@@ -1,11 +1,12 @@
 package com.company;
 
-public class Song {
+public class Song extends TikTok{
     private int idS;
     private String nameS;
     private String singer;
 
     public Song(int idS, String nameS, String singer) {
+        super();
         this.idS = idS;
         this.nameS = nameS;
         this.singer = singer;

@@ -2,21 +2,22 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Follower {
+public class Follower extends Idols {
     private String nameF;
     private int idF;
     private String emailF;
     private int numberOfLike;
 
-    public Follower(String nameF, int idF, String emailF, int numberOfLike) {
+    public Follower(String name, int id, String email, int followers, String group, String nameF, int idF, String emailF, int numberOfLike) {
+        super(name, id, email, followers, group);
         this.nameF = nameF;
         this.idF = idF;
         this.emailF = emailF;
         this.numberOfLike = numberOfLike;
     }
 
-    public Follower(String name, int id, String email, int followers, String group, ArrayList<Follower> follower) {
-
+    public Follower(String nameF, int idF, String emailF, int likes) {
+        super(nameF, idF, emailF, likes);
     }
 
     public String getNameF() {

@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Yêu cầu bạn nhập số Idols: ");
         int n = Integer.parseInt(scanner.nextLine());
 
-        ArrayList<Idols> idols = new ArrayList<>();
+        ArrayList<Idols> idol = new ArrayList<>();
         for (int i = 0 ; i < n; i++){
             System.out.println("Mời bạn nhập tên của Idol thứ " +(i+1));
             String name = scanner.nextLine();
@@ -47,17 +47,17 @@ public class Main {
             System.out.println(follower);
 
             Idols idols1 = new Idols(name, id, email, followers, group , follower);
-            idols.add(idols1);
+            idol.add(idols1);
 
         }
-        System.out.println(idols);
+        System.out.println(idol);
 
         ArrayList<Song> song = new ArrayList<>();
 
         System.out.println("Nhập id bài hát");
         int idS = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("Nhập tến bài hát");
+        System.out.println("Tên bài hát");
         String nameS = scanner.nextLine();
 
         System.out.println("Nhập tến nhạc sỹ");
@@ -67,5 +67,8 @@ public class Main {
         song.add(song1);
 
         System.out.println(song);
+
+        ArrayList<TikTok> tikToks = new ArrayList<>();
+        TikTok tikTok = new TikTok(idol,song);
     }
 }

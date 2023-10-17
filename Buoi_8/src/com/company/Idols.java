@@ -2,15 +2,15 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Idols extends Follower{
+public class Idols extends TikTok{
     private String name;
     private int id;
     private String email;
     private int followers;
     private String group;
 
-    public Idols(String nameF, int idF, String emailF, int numberOfLike, String name, int id, String email, int followers, String group) {
-        super(nameF, idF, emailF, numberOfLike);
+    public Idols(String name, int id, String email, int followers, String group) {
+        super();
         this.name = name;
         this.id = id;
         this.email = email;
@@ -19,8 +19,15 @@ public class Idols extends Follower{
     }
 
     public Idols(String name, int id, String email, int followers, String group, ArrayList<Follower> follower) {
-        super(name, id, email, followers, group, follower);
+        super();
+
     }
+
+    public Idols(String nameF, int idF, String emailF, int likes) {
+        super();
+
+    }
+
 
     public String getName() {
         return name;
