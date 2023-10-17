@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -142,6 +143,24 @@ public class Main {
 
 
         ArrayList<String> classRoom = new ArrayList<>(List.of(" Môn học: IT "+students+students2+students3));
+
+        System.out.println("Có muốn thêm học sinh vào nữa không(Y/N)");
+        String input = scanner.nextLine();
+
+        while (input.equals("y")){
+            System.out.println("Mời nhập id:");
+            id = Integer.parseInt(scanner.nextLine());
+            System.out.println("Mời nhập tên:");
+            String name = scanner.nextLine();
+            System.out.println("Mời nhập tuổi:");
+            int age = Integer.parseInt(scanner.nextLine());
+            System.out.println("Mời nhập học lực:");
+            String score = scanner.nextLine();
+            List<Object> students1 = Arrays.asList("id: "+id,"",name+" Tuổi "+age," Học lực "+score);
+            classRoom.add(String.valueOf(students1));
+            System.out.println("Có muốn thêm học sinh vào nữa không(Y/N)");
+            input = scanner.nextLine();
+        }
 
         ArrayList<String> students4 = new ArrayList<>(List.of("id: 020 ","Minh ","Tuổi: 22"," Học Lực:"," Khá"));
 
