@@ -36,9 +36,9 @@ public class UserService {
         return null;
     }
 
-    private User checkForNewAccount(String username, String password ,String email ,ArrayList<User> users){
+    private User checkForNewAccount(String username, String email ,ArrayList<User> users){
         for (User user : users){
-            if (user.getUsername().equals(username) && user.getPassword().equals(password) && user.getEmail().equals(email)){
+            if (user.getUsername().equals(username) || user.getEmail().equals(email)){
                 return user;
             }
         }
@@ -94,7 +94,7 @@ public class UserService {
         }
 
         User user = new User(username, password, email);
-        User checkExits = checkForNewAccount(username, password, email, users);
+        User checkExits = checkForNewAccount(username, email, users);
 
         if (checkExits == null){
             System.out.println("Account creation success");
