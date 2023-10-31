@@ -65,32 +65,32 @@ public class Menu {
     }
 
     public void updateMenu(Scanner scanner, ArrayList<OfficeEmployee> employees){
+        for (OfficeEmployee employee : employees) {
         System.out.println("1-Đổi tên");
         System.out.println("2-Đổi lương");
         System.out.println("3-Thoát");
-
         int input = Integer.parseInt(scanner.nextLine());
-
-        for (OfficeEmployee employee : employees) {
             switch (input) {
-                case 1:
+                case 1 -> {
                     System.out.println("Tên mới");
                     String name = scanner.nextLine();
                     employee.setName(name);
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("Lương mới");
                     double salary = utils.inputDouble(scanner);
                     employee.setSalary(salary);
-                case 3:
-                    System.exit(0);
-                default:
-                    break;
-            }inputMenu(scanner, employees);
+                }
+                case 3 -> inputMenu(scanner, employees);
+                default -> {
+                }
+            }
         }
+        inputMenu(scanner, employees);
     }
 
     public void deleteEmployee(Scanner scanner, ArrayList<OfficeEmployee> employees){
-        System.out.println("Nhập id của nhân viên mà bạn muốn cập nhập :");
+        System.out.println("Nhập id của nhân viên mà bạn muốn xóa :");
         for (OfficeEmployee employee : employees) {
             int findID = Integer.parseInt(scanner.nextLine());
 
@@ -101,8 +101,8 @@ public class Menu {
             } else {
                 System.out.println("Nhân viên không được tìm thấy");
             }
-            inputMenu(scanner, employees);
         }
+        inputMenu(scanner, employees);
     }
 
     public void deleteMenu(Scanner scanner, ArrayList<OfficeEmployee> employees){
