@@ -2,15 +2,12 @@ package com.company.service;
 
 import com.company.entities.Student;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class StudentManagement {
     StudentService studentService = new StudentService();
-    Map<Integer, Student> map = new HashMap<>();
-    public void managementMenu(Scanner scanner, ArrayList<Student> students){
+    public void managementMenu(Scanner scanner, Map<Integer, Student> students){
         System.out.println("Student Management");
         System.out.println("1-Thêm sinh viên");
         System.out.println("2-Xóa sinh viên");
@@ -31,61 +28,46 @@ public class StudentManagement {
         } managementMenu(scanner, students);
     }
 
-    public Student findStudentById(int id, ArrayList<Student> students){
-        for (Student student : students){
-            if (student.getId() == id){
-                return student;
-            }
-        }
-        return null;
+    public Student findStudentById(int id, Map<Integer, Student> students){
+        return students.get(id);
     }
 
-    public void deleteMenu(Scanner scanner, ArrayList<Student> students) {
-        for (Student student : students) {
+    public void deleteMenu(Scanner scanner, Map<Integer, Student> students) {
+        for (Map.Entry<Integer, Student> entry : students.entrySet()) {
             System.out.println("Nhập id của sinh viên mà bạn muốn xóa");
             int id = Integer.parseInt(scanner.nextLine());
 
             Student studentId = findStudentById(id, students);
-            if (studentId == student) {
+            if (studentId == entry.getValue()) {
                 System.out.println("Học sinh đã xóa thành công");
-                deleteStudent(students);
+                students.remove(entry.getKey());
             } else {
                 System.out.println("Không tìm thấy học sinh");
             }
         }
     }
 
-    public void deleteStudent(ArrayList<Student> students){
-        for (Map.Entry<Integer, Student> entry: map.entrySet()){
-            map.remove(entry.getKey());
-        }
-    }
-
-    public void findStudent(Scanner scanner, ArrayList<Student> students){
-        for (Student student : students) {
+    public void findStudent(Scanner scanner, Map<Integer, Student> students){
+        for (Map.Entry<Integer, Student> entry : students.entrySet()) {
             System.out.println("Nhập id của sinh viên mà bạn muốn tìm");
             int id = Integer.parseInt(scanner.nextLine());
 
             Student studentId = findStudentById(id, students);
-            if (studentId == student) {
+            if (studentId == entry.getValue()) {
                 System.out.println("Học sinh đã tìm thấy thành công");
-                getStudentById(id);
+                System.out.println(students);
             } else {
                 System.out.println("Không tìm thấy học sinh");
             }
         }
     }
 
-    public void getStudentById(int id){
-        map.get(id);
-    }
-
-    public void averageScore(ArrayList<Student> students){
+    public void averageScore(Map<Integer, Student> students) {
         double sum = 0;
-        for (Student student : map.values()){
+        for (Student student : students.values()) {
             sum += student.getScore();
         }
-        double average = sum / map.size();
+        double average = sum / students.size();
         System.out.println(average);
     }
 }

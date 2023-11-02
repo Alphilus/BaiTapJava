@@ -37,7 +37,7 @@ public class Student {
     }
 
     public double getScore() {
-        return 0;
+        return score;
     }
 
     public void setScore(double score) {
